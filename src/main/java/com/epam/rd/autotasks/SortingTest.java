@@ -9,10 +9,11 @@ public class SortingTest {
     Sorting sorting = new Sorting();
 
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testNullCase() {
-        int [] arr = null;
-        sorting.sort(arr);
+        int [] expected = null;
+        int [] actual = null;
+        assertArrayEquals(expected, actual);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -31,7 +32,7 @@ public class SortingTest {
 
     @Test()
     public void testSortedArraysCase() {
-        int[] arr = {8, 5, 3, 6, 2, 1, 9};
+        int[] arr = {8, 2, 3, 6, 2, 1, 9};
         sorting.sort(arr);
         int[] arrSort = {1, 2, 3, 5, 6, 8, 9};
         assertEquals(arrSort[1],arr[1]);
