@@ -11,4 +11,10 @@ public class Sorting {
         }
     }
 
+    public static void main(String[] args) {
+        Sorting sorting = new Sorting();
+        int []  arr = new int[0];
+        sorting.sort(arr);
+        System.out.println(arr[0]);
+    }
 }
