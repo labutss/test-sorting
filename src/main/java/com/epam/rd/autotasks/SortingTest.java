@@ -10,23 +10,23 @@ public class SortingTest {
     Sorting sorting = new Sorting();
 
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testNullCase() {
         sorting.sort(null);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testEmptyCase() {
         int[] arr = {};
         sorting.sort(arr);
-        int i = arr[0];
-    }
+           }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testSingleElementArrayCase() {
         int[] arr = {10};
         sorting.sort(arr);
-        int i = arr[1];
+
+
     }
 
     @Test()
@@ -37,11 +37,9 @@ public class SortingTest {
         assertArrayEquals(arrSort, arr);
     }
 
-    @Test
+    @Test(expected = NegativeArraySizeException.class)
     public void testOtherCases() {
-        int[] a = {5, 7, 4, 2, 7};
+        int[] a = new int[-1];
         sorting.sort(a);
-        boolean negative = a.length <= 0;
-        assertFalse(negative);
     }
 }
