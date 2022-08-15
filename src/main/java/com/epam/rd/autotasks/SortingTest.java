@@ -2,49 +2,46 @@ package com.epam.rd.autotasks;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertFalse;
 
 public class SortingTest {
 
     Sorting sorting = new Sorting();
 
 
-    @Test
+    @Test(expected = RuntimeException.class)
     public void testNullCase() {
-        int [] expected = null;
-        int [] actual = null;
-        assertArrayEquals(expected, actual);
+        sorting.sort(null);
     }
 
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testEmptyCase() {
-        int[] arr = new int[0];
+        int[] arr = {};
         sorting.sort(arr);
-        int point = arr[0];
+        int i = arr[0];
     }
 
-    @Test
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testSingleElementArrayCase() {
         int[] arr = {10};
         sorting.sort(arr);
-        assertEquals(arr[0], arr[0]);
+        int i = arr[1];
     }
 
     @Test()
     public void testSortedArraysCase() {
-        int[] arr = {8, 2, 3, 6, 2, 1, 9};
+        int[] arr = {8, 5, 3, 6, 2, 1, 9};
         sorting.sort(arr);
         int[] arrSort = {1, 2, 3, 5, 6, 8, 9};
-        assertEquals(arrSort[1],arr[1]);
+        assertArrayEquals(arrSort, arr);
     }
 
-    @Test(expected = AssertionError.class)
-    public void testOtherCases() throws AssertionError{
+    @Test
+    public void testOtherCases() {
         int[] a = {5, 7, 4, 2, 7};
         sorting.sort(a);
-        boolean negative = a.length > 0;
+        boolean negative = a.length <= 0;
         assertFalse(negative);
     }
-
-
 }
