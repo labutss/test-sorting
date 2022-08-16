@@ -3,7 +3,6 @@ package com.epam.rd.autotasks;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertFalse;
 
 public class SortingTest {
 
@@ -15,21 +14,20 @@ public class SortingTest {
         sorting.sort(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void testEmptyCase() {
         int[] arr = {};
         sorting.sort(arr);
-           }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testSingleElementArrayCase() {
-        int[] arr = {10};
-        sorting.sort(arr);
-
 
     }
 
-    @Test()
+    @Test
+    public void testSingleElementArrayCase() {
+        int[] arr = {10};
+        sorting.sort(arr);
+    }
+
+    @Test
     public void testSortedArraysCase() {
         int[] arr = {8, 5, 3, 6, 2, 1, 9};
         sorting.sort(arr);

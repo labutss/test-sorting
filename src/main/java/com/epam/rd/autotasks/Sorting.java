@@ -4,16 +4,10 @@ import java.util.Arrays;
 
 public class Sorting {
     public void sort(int[] array) {
-        if (array == null || array.length<=1) {
+        if (array == null) {
             throw new IllegalArgumentException();
-        }  else {
+        } else {
             Arrays.sort(array);
         }
-    }
-
-    public static void main(String[] args) {
-        Sorting sorting = new Sorting();
-        int [] ar = {};
-        sorting.sort(ar);
     }
 }
