@@ -3,11 +3,11 @@ package com.epam.rd.autotasks;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class SortingTest {
 
     Sorting sorting = new Sorting();
-
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullCase() {
@@ -16,28 +16,32 @@ public class SortingTest {
 
     @Test
     public void testEmptyCase() {
-        int[] arr = {};
-        sorting.sort(arr);
-
+        int[] initial = {};
+        sorting.sort(initial);
+        assertEquals(0, initial.length);
     }
 
     @Test
     public void testSingleElementArrayCase() {
-        int[] arr = {10};
-        sorting.sort(arr);
+        int[] initial = {10};
+        sorting.sort(initial);
+        assertEquals(1, initial.length);
+        assertEquals(10, initial[0]);
     }
 
     @Test
     public void testSortedArraysCase() {
-        int[] arr = {8, 5, 3, 6, 2, 1, 9};
-        sorting.sort(arr);
-        int[] arrSort = {1, 2, 3, 5, 6, 8, 9};
-        assertArrayEquals(arrSort, arr);
+        int[] initialArray = {1, 2, 3};
+        sorting.sort(initialArray);
+        int[] sortedArray = {1, 2, 3};
+        assertArrayEquals(sortedArray, initialArray);
     }
 
-    @Test(expected = NegativeArraySizeException.class)
+    @Test
     public void testOtherCases() {
-        int[] a = new int[-1];
-        sorting.sort(a);
+        int[] initialArray = {8, 5, 3, 6, 2, 1, 9};
+        sorting.sort(initialArray);
+        int[] sortedArray = {1, 2, 3, 5, 6, 8, 9};
+        assertArrayEquals(sortedArray, initialArray);
     }
 }
